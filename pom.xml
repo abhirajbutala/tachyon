@@ -138,9 +138,11 @@
   </properties>
 
   <modules>
-    <module>core</module>
-    <module>client</module>
-    <module>assembly</module>
+    <module>tachyon-common</module>
+    <module>tachyon-underfs</module>
+    <module>tachyon-clients</module>
+    <module>tachyon-servers</module>
+    <module>tachyon-assembly</module>
   </modules>
 
   <build>
