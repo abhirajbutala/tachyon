@@ -55,8 +55,8 @@
       <groupId>commons-io</groupId>
       <artifactId>commons-io</artifactId>
       <version>2.4</version>
-    </dependency>
-    <dependency>
+    </dependency-->
+    <!--dependency>
       <groupId>org.apache.thrift</groupId>
       <artifactId>libthrift</artifactId>
       <version>${libthrift.version}</version>
@@ -66,8 +66,8 @@
           <artifactId>slf4j-api</artifactId>
         </exclusion>
       </exclusions>
-    </dependency>
-    <dependency>
+    </dependency-->
+    <!--dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-lang3</artifactId>
       <version>3.0</version>
@@ -113,6 +113,18 @@
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.10</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.powermock</groupId>
+      <artifactId>powermock-module-junit4</artifactId>
+      <version>${powermock.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.powermock</groupId>
+      <artifactId>powermock-api-mockito</artifactId>
+      <version>${powermock.version}</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -315,7 +327,7 @@
         <artifactId>maven-shade-plugin</artifactId>
         <version>2.2</version>
         <executions>
-          <execution>
+          <!--execution>
             <id>include-thrift</id>
             <phase>package</phase>
             <goals>
@@ -328,9 +340,9 @@
                 </includes>
               </artifactSet>
               <filters>
-                <filter>
+                <filter-->
                   <!-- Sigh. The Thrift jar contains its source -->
-                  <artifact>org.apache.thrift:libthrift</artifact>
+                  <!--artifact>org.apache.thrift:libthrift</artifact>
                   <excludes>
                     <exclude>**/*.java</exclude>
                   </excludes>
@@ -343,7 +355,7 @@
                 </relocation>
               </relocations>
             </configuration>
-          </execution>
+          </execution-->
           <execution>
             <id>uber-jar</id>
             <phase>package</phase>
