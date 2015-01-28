@@ -25,7 +25,7 @@ if [ -z "$TACHYON_SYSTEM_INSTALLATION" ]; then
   export TACHYON_HOME=${TACHYON_PREFIX}
   export TACHYON_CONF_DIR="$TACHYON_HOME/conf"
   export TACHYON_LOGS_DIR="$TACHYON_HOME/logs"
-  export TACHYON_JAR=$TACHYON_HOME/core/target/tachyon-0.6.0-SNAPSHOT-jar-with-dependencies.jar
+  export TACHYON_JAR=$TACHYON_HOME/tachyon-servers/target/tachyon-0.6.0-SNAPSHOT-jar-with-dependencies.jar:$TACHYON_HOME/tachyon-clients/tachyon-hadoop/target/tachyon-hadoop-0.6.0-SNAPSHOT-jar-with-dependencies.jar:$TACHYON_HOME/tachyon-clients/tachyon-shell/target/tachyon-shell-0.6.0-SNAPSHOT-jar-with-dependencies.jar:$TACHYON_HOME/tachyon-clients/tachyon-examples/target/tachyon-examples-0.6.0-SNAPSHOT-jar-with-dependencies.jar
   export JAVA="$JAVA_HOME/bin/java"
 fi
 
