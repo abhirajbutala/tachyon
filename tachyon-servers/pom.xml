@@ -350,35 +350,6 @@
         <artifactId>maven-shade-plugin</artifactId>
         <version>2.2</version>
         <executions>
-          <!--execution>
-            <id>include-thrift</id>
-            <phase>package</phase>
-            <goals>
-              <goal>shade</goal>
-            </goals>
-            <configuration>
-              <artifactSet>
-                <includes>
-                  <include>org.apache.thrift:libthrift</include>
-                </includes>
-              </artifactSet>
-              <filters>
-                <filter-->
-                  <!-- Sigh. The Thrift jar contains its source -->
-                  <!--artifact>org.apache.thrift:libthrift</artifact>
-                  <excludes>
-                    <exclude>**/*.java</exclude>
-                  </excludes>
-                </filter>
-              </filters>
-              <relocations>
-                <relocation>
-                  <pattern>org.apache.thrift</pattern>
-                  <shadedPattern>tachyon.org.apache.thrift</shadedPattern>
-                </relocation>
-              </relocations>
-            </configuration>
-          </execution-->
           <execution>
             <id>uber-jar</id>
             <phase>package</phase>
@@ -436,29 +407,11 @@
         </executions>
       </plugin>
       <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>findbugs-maven-plugin</artifactId>
-        <version>2.5.2</version>
-        <configuration>
-          <excludeFilterFile>${project.basedir}/src/main/findbugs/findbugs-exclude.xml</excludeFilterFile>
-          <findbugsXmlOutput>true</findbugsXmlOutput>
-          <xmlOutput>true</xmlOutput>
-          <effort>Max</effort>
-        </configuration>
-      </plugin>
-      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
         <version>2.13</version>
         <configuration>
           <configLocation>${project.basedir}/src/main/resources/tachyon_checks.xml</configLocation>
-          <!-- TODO: This is needed to excuse Tachyon Configuration members' name from being -->
-          <!-- checked because the members are define using all upper case. -->
-          <!-- Once the new configuration is implemented we wil remove this exception -->
-          <suppressionsLocation>
-            ${project.basedir}/src/main/resources/tachyon_checkstyle_suppressions.xml
-          </suppressionsLocation>
-          <excludes>**/tachyon/thrift/**</excludes>
           <encoding>UTF-8</encoding>
           <consoleOutput>true</consoleOutput>
           <failsOnError>true</failsOnError>

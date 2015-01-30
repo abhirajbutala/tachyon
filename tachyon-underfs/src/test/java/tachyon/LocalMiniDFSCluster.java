@@ -16,6 +16,7 @@ package tachyon;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.OutputStream;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileStatus;
@@ -23,7 +24,7 @@ import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.hdfs.DistributedFileSystem;
 import org.apache.hadoop.hdfs.MiniDFSCluster;
 
-import tachyon.util.CommonUtils;
+//import tachyon.util.CommonUtils;
 
 /**
  * A local MiniDFSCluster for testing UnderFileSystemHdfs.
@@ -56,7 +57,7 @@ public class LocalMiniDFSCluster extends UnderFileSystemCluster {
       dfs = cluster.getDFSClient();
       dfs.mkdirs(new Path("/1"));
 
-      CommonUtils.touch(cluster.getUnderFilesystemAddress() + "/1" + "/_format_"
+      touch(cluster.getUnderFilesystemAddress() + "/1" + "/_format_"
           + System.currentTimeMillis());
       fs = dfs.listStatus(new Path("/1"));
       assert fs.length != 0;
@@ -69,6 +70,12 @@ public class LocalMiniDFSCluster extends UnderFileSystemCluster {
         cluster.shutdown();
       }
     }
+  }
+
+  private static void touch(String path) throws IOException {
+    UnderFileSystem ufs = UnderFileSystem.get(path);
+    OutputStream os = ufs.create(path);
+    os.close();
   }
 
   public static boolean mkdirs(String path) throws IOException {
