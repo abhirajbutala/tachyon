@@ -17,7 +17,7 @@ few things that everyone should do before developing on Tachyon.
     [Command-Line Interface](Command-Line-Interface.html)
     (Optional)
 
-4.  Read and understand [an example](https://github.com/amplab/tachyon/blob/master/core/src/main/java/tachyon/examples/BasicOperations.java).
+4.  Read and understand [an example](https://github.com/amplab/tachyon/blob/master/tachyon-clients/tachyon-examples/src/main/java/tachyon/examples/BasicOperations.java).
 
 5.  [Building Tachyon Master Branch](Building-Tachyon-Master-Branch.html).
 
